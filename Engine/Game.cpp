@@ -28,10 +28,10 @@ Game::Game(MainWindow& wnd)
 	rng(rd()),
 	xDist(0, 780),
 	yDist(0, 580),
-	rdx(-1, 1),
-	rdy(-1, 1),
+	rdx(-2.5f, 2.5f),
+	rdy(-2.5f, 2.5f),
 	dude(300, 300),
-	diamond(xDist(rng), yDist(rng))
+	diamond((int)xDist(rng), (int)yDist(rng))
 {
 	SetupBombs();
 }
@@ -90,7 +90,7 @@ void Game::UpdateModel()
 
 		if (diamond.IsColliding(dude))
 		{
-			diamond.Reset(xDist(rng), yDist(rng));
+			diamond.Reset((int)xDist(rng), (int)yDist(rng));
 			score += diamond.GetWorth();
 			UpdateScore();
 		}
@@ -13638,8 +13638,8 @@ void Game::SetupBombs()
 {
 	for (int i = 0; i < nBombs; i++)
 	{
-		int curDX = rdx(rng);
-		int curDY = rdy(rng);
+		float curDX = rdx(rng);
+		float curDY = rdy(rng);
 
 		//Make sure bombs
 		//dont end up with

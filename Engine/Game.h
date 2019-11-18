@@ -62,10 +62,10 @@ private:
 	/********************************/
 	std::random_device rd;
 	std::mt19937 rng;
-	std::uniform_int_distribution<int> xDist;
-	std::uniform_int_distribution<int> yDist;
-	std::uniform_int_distribution<int> rdx;
-	std::uniform_int_distribution<int> rdy;
+	std::uniform_real_distribution<float> xDist;
+	std::uniform_real_distribution<float> yDist;
+	std::uniform_real_distribution<float> rdx;
+	std::uniform_real_distribution<float> rdy;
 	
 	bool startGame = false;
 	bool gameOver = false;
