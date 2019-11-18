@@ -1,6 +1,6 @@
 #include "Bomb.h"
 
-void Bomb::Init(int posX, int posY, int dirX, int dirY)
+void Bomb::Init(int posX, int posY, float dirX, float dirY)
 {
 	//Test
 	x = posX;
