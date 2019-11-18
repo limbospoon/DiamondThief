@@ -2,6 +2,7 @@
 
 void Bomb::Init(int posX, int posY, int dirX, int dirY)
 {
+	//Test
 	x = posX;
 	y = posY;
 	dx = dirX;
