@@ -5,7 +5,7 @@
 class Bomb
 {
 public:
-	void Init(int posX, int posY, int dirX, int dirY);
+	void Init(int posX, int posY, float dirX, float dirY);
 	void DrawBomb(Graphics& gfx) const;
 	void MoveBomb();
 	bool IsColliding(const Dude& dude) const;
@@ -15,6 +15,6 @@ private:
 	const int size = 16;
 	int x = 300;
 	int y = 300;
-	int dx;
-	int dy;
+	float dx;
+	float dy;
 };
