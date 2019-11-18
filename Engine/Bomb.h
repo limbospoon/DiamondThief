@@ -5,16 +5,16 @@
 class Bomb
 {
 public:
-	void Init(int posX, int posY, float dirX, float dirY);
+	void Init(float posX, float posY, float dirX, float dirY);
 	void DrawBomb(Graphics& gfx) const;
 	void MoveBomb();
 	bool IsColliding(const Dude& dude) const;
-	void Bounce(int xBounds, int yBounds);
+	void Bounce(float xBounds, float yBounds);
 
 private:
-	const int size = 16;
-	int x = 300;
-	int y = 300;
+	const float size = 16.0f;
+	float x = 300;
+	float y = 300;
 	float dx;
 	float dy;
 };

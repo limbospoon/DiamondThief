@@ -71,7 +71,7 @@ void Game::UpdateModel()
 		for (int i = 0; i < nBombs; i++)
 		{
 			bombs[i].MoveBomb();
-			bombs[i].Bounce(gfx.ScreenWidth, gfx.ScreenHeight);
+			bombs[i].Bounce((float)gfx.ScreenWidth, (float)gfx.ScreenHeight);
 		}
 		
 		for (int i = 0; i < nBombs; i++)
