@@ -28,6 +28,7 @@
 #include "Dude.h"
 #include "Bomb.h"
 #include "Diamond.h"
+#include "FrameTimer.h"
 
 class Game
 {
@@ -78,4 +79,5 @@ private:
 	Dude dude;
 	Bomb bombs[nBombs];
 	Diamond diamond;
+	FrameTimer ft;
 };
