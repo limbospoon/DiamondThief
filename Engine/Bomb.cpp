@@ -177,10 +177,10 @@ void Bomb::DrawBomb(Graphics& gfx) const
 	gfx.PutPixel(9 + x_int, 15 + y_int, 255, 254, 253);
 }
 
-void Bomb::MoveBomb()
+void Bomb::MoveBomb(float deltaTime)
 {
-	x = x + dx;
-	y = y + dy;
+	x += dx * deltaTime;
+	y += dy * deltaTime;
 }
 
 bool Bomb::IsColliding(const Dude& dude) const
@@ -200,20 +200,24 @@ void Bomb::Bounce(float xBounds, float yBounds)
 	const float top = y;
 	const float bottom = y + size;
 
-	if (left < 0)
+	if (left < 0.0f)
 	{
+		x = 0.0f;
 		dx = -dx;
 	}
 	else if (right >= xBounds)
 	{
+		x = float(Graphics::ScreenWidth - 1) - size;
 		dx = -dx;
 	}
-	if (top < 0)
+	if (top < 0.0f)
 	{
+		y = 0.0f;
 		dy = -dy;
 	}
 	else if (bottom >= yBounds)
 	{
+		y = float(Graphics::ScreenHeight - 1) - size;
 		dy = -dy;
 	}
 }

@@ -28,8 +28,8 @@ Game::Game(MainWindow& wnd)
 	rng(rd()),
 	xDist(0, 780),
 	yDist(0, 580),
-	rdx(-2.5f, 2.5f),
-	rdy(-2.5f, 2.5f),
+	rdx(-2.5f * 60.0f, 2.5f * 60.0f),
+	rdy(-2.5f * 60.0f, 2.5f * 60.0f),
 	dude(300, 300),
 	diamond((int)xDist(rng), (int)yDist(rng))
 {
@@ -46,6 +46,8 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+	const float dt = ft.Mark();
+
 	if (startGame)
 	{
 		if (wnd.kbd.KeyIsPressed(0x57))
@@ -70,7 +72,7 @@ void Game::UpdateModel()
 
 		for (int i = 0; i < nBombs; i++)
 		{
-			bombs[i].MoveBomb();
+			bombs[i].MoveBomb(dt);
 			bombs[i].Bounce((float)gfx.ScreenWidth, (float)gfx.ScreenHeight);
 		}
 		
