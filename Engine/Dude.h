@@ -4,23 +4,19 @@
 class Dude
 {
 public:
-	Dude(int posX, int posY);
+	Dude(float posX, float posY);
 	void DrawDude(Graphics& gfx);
-	void MoveDude(int dx, int dy);
+	void MoveDude(float dx, float dy, float deltaTime);
 	void Reset();
-	void Invincibility();
-	bool GetInvincibility();
-	int GetX() const;
-	int GetY() const;
+	float GetX() const;
+	float GetY() const;
 
 private:
-	const int size = 16;
-	int x;
-	int y;
-	int startX = 416;
-	int startY = 316;
-	bool isInvincible = false;
-	bool moved = false;
+	const float size = 16;
+	float x;
+	float y;
+	float startX = 416;
+	float startY = 316;
 	Color normal = Colors::Yellow;
 	Color invincibleColor = Colors::Red;
 	Color currentColor = normal;

@@ -50,25 +50,23 @@ void Game::UpdateModel()
 
 	if (startGame)
 	{
-		if (wnd.kbd.KeyIsPressed(0x57))
+		if (wnd.kbd.KeyIsPressed('W'))
 		{
-			dude.MoveDude(0, -1);
+			dude.MoveDude(0, -1, dt);
 		}
-		else if (wnd.kbd.KeyIsPressed(0x53))
+		else if (wnd.kbd.KeyIsPressed('S'))
 		{
-			dude.MoveDude(0, 1);
-		}
-
-		if (wnd.kbd.KeyIsPressed(0x41))
-		{
-			dude.MoveDude(-1, 0);
-		}
-		else if (wnd.kbd.KeyIsPressed(0x44))
-		{
-			dude.MoveDude(1, 0);
+			dude.MoveDude(0, 1, dt);
 		}
 
-		dude.Invincibility();
+		if (wnd.kbd.KeyIsPressed('A'))
+		{
+			dude.MoveDude(-1, 0, dt);
+		}
+		else if (wnd.kbd.KeyIsPressed('D'))
+		{
+			dude.MoveDude(1, 0, dt);
+		}
 
 		for (int i = 0; i < nBombs; i++)
 		{
@@ -78,7 +76,7 @@ void Game::UpdateModel()
 		
 		for (int i = 0; i < nBombs; i++)
 		{
-			if (bombs[i].IsColliding(dude) && !dude.GetInvincibility())
+			if (bombs[i].IsColliding(dude))
 			{
 				dude.Reset();
 				lives--;
